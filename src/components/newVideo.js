@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input, Card, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { addNewVideo } from "../features/videoLib/videoSlice";
-
+import "../App.css";
 export const NewVideo = () => {
   const [name, setName] = useState("");
   const [video, setVideo] = useState("");
@@ -20,7 +20,7 @@ export const NewVideo = () => {
   };
 
   return (
-    <Card style={{ width: 400 }}>
+    <Card className="input-card" style={{ width: 400 }}>
       <Input
         placeholder="Name"
         value={name}

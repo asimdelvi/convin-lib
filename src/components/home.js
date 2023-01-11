@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { retrieveVideos } from "../features/videoLib/videoSlice";
 import { VideoCard } from "./videoCard.js";
 import { BucketSelect } from "./bucketSelect";
-import { Typography } from "antd";
-
-const { Title } = Typography;
+import "../App.css";
 
 export function Home() {
   const { videos } = useSelector((state) => state.video);
@@ -18,9 +16,8 @@ export function Home() {
 
   return (
     <div>
-      <Title level={2}>videoLibrary</Title>
       <BucketSelect />
-      <div>
+      <div className="videos-list">
         {videos.map((video) => {
           if (video.bucket === bucket || bucket === "all") {
             return (
@@ -30,6 +27,7 @@ export function Home() {
                 name={video.name}
                 url={video.videoURL}
                 bucket={video.bucket}
+                className="card"
               />
             );
           } else {

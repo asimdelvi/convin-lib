@@ -19,22 +19,16 @@
       "id": 8
     },
     {
-      "name": "chatGPT",
-      "videoURL": "https://youtube.com/watch?v=g0TpCVpLAs4&feature=shares",
-      "bucket": "education",
+      "name": "Sat Night Live",
+      "videoURL": "https://youtube.com/watch?v=9EhbfWNqsZs&feature=shares",
+      "bucket": "coding",
       "id": 9
     },
     {
-      "name": "Hey",
-      "videoURL": "https://youtube.com/watch?v=g0TpCVpLAs4&feature=shares",
-      "bucket": "asdf",
+      "name": "Myth about solar energy",
+      "videoURL": "https://youtube.com/watch?v=853pP8c8s_s&feature=shares",
+      "bucket": "education",
       "id": 10
-    },
-    {
-      "name": "asdf",
-      "videoURL": "https://youtube.com/watch?v=g0TpCVpLAs4&feature=shares",
-      "bucket": "brobbbb",
-      "id": 11
     }
   ]
 }

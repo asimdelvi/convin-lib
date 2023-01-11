@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "../App.css";
 
 export const Video = () => {
   const { id } = useParams();
@@ -7,6 +8,7 @@ export const Video = () => {
 
   console.log(videos);
   let videoURL;
+  let videoName;
 
   for (const video of videos) {
     // eslint-disable-next-line eqeqeq
@@ -14,6 +16,7 @@ export const Video = () => {
     // eslint-disable-next-line eqeqeq
     if (video.id == id) {
       videoURL = video.videoURL;
+      videoName = video.name;
     }
   }
 
@@ -28,13 +31,17 @@ export const Video = () => {
 
   console.log(videoURL);
   return (
-    <iframe
-      width="560"
-      height="315"
-      src={getVideoId(videoURL)}
-      title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+    <>
+      <iframe
+        width="560"
+        height="315"
+        src={getVideoId(videoURL)}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        className="video-frame"
+      ></iframe>
+      <h2>{videoName}</h2>
+    </>
   );
 };

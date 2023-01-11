@@ -39,8 +39,10 @@ export const VideoCard = (props) => {
         <EllipsisOutlined key="ellipsis" />,
       ]}
     >
-      <Meta title={name} description={bucket} />
-      <Link to={`/videos/${id}`}>{name}</Link>
+      <Meta
+        title={<Link to={`/videos/${id}`}>{name}</Link>}
+        description={bucket}
+      />
     </Card>
   );
 };
