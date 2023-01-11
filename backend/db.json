@@ -1,0 +1,22 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "name": "Rendering patterns",
+      "videoURL": "https://youtube.com/watch?v=Dkx5ydvtpCA&feature=shares",
+      "bucket": "coding"
+    },
+    {
+      "id": 2,
+      "name": "Mystery of flight IC-814",
+      "videoURL": "https://youtube.com/watch?v=1unoB93xeeQ&feature=shares",
+      "bucket": "education"
+    },
+    {
+      "id": 3,
+      "name": "CSRF Token",
+      "videoURL": "https://youtube.com/watch?v=1unoB93xeeQ&feature=shares",
+      "bucket": "coding"
+    }
+  ]
+}
