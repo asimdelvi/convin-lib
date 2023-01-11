@@ -1,12 +1,12 @@
 // import logo from "./logo.svg";
 // import { Counter } from "./features/counter/Counter";
-// import { useEffect } from "react";
 import React, { useEffect } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { retrieveVideos } from "./features/videoLib/videoSlice";
 import { VideoCard } from "./components/videoCard.js";
-import { Typography, Col, Row } from "antd";
+import { NewVideo } from "./components/newVideo.js";
+import { Typography } from "antd";
 
 const { Title } = Typography;
 
@@ -21,13 +21,21 @@ function App() {
   return (
     <div>
       <Title level={2}>videoLibrary</Title>
-      <Row>
+      <div>
         {videos.map((video) => (
-          <Col span={6}>
-            <VideoCard key={video.id} name={video.name} url={video.videoURL} />
-          </Col>
+          <VideoCard
+            key={video.id}
+            id={video.id}
+            name={video.name}
+            url={video.videoURL}
+            bucket={video.bucket}
+          />
         ))}
-      </Row>
+      </div>
+      <div>
+        <div>Add New Video</div>
+        <NewVideo />
+      </div>
     </div>
   );
 }

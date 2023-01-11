@@ -1,13 +1,16 @@
 import {
   EditOutlined,
   EllipsisOutlined,
-  SettingOutlined,
+  DeleteOutlined,
 } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
 import { Card } from "antd";
+import { deleteOneVideo } from "../features/videoLib/videoSlice";
 const { Meta } = Card;
 
 export const VideoCard = (props) => {
-  let { name, url } = props;
+  let { id, name, url, bucket } = props;
+  const dispatch = useDispatch();
 
   function getVideoId(url) {
     var regExp =
@@ -18,19 +21,24 @@ export const VideoCard = (props) => {
     return false;
   }
 
+  const onClickDelete = () => {
+    dispatch(deleteOneVideo(id));
+  };
+
   return (
     <Card
+      hoverable
       style={{
         width: 200,
       }}
       cover={<img alt={name} src={getVideoId(url)} />}
       actions={[
-        <SettingOutlined key="setting" />,
+        <DeleteOutlined key="delete" onClick={onClickDelete} />,
         <EditOutlined key="edit" />,
         <EllipsisOutlined key="ellipsis" />,
       ]}
     >
-      <Meta name={name} url={url} />
+      <Meta title={name} description={bucket} />
     </Card>
   );
 };
