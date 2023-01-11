@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const fetchVideos = async () => {
-  const data = await fetch("http://localhost:3004/videos/");
+  const data = await fetch("https://shadowed-blush-collar.glitch.me/videos/");
   const res = await data.json();
   return res;
 };
 
 const createVideo = async (videoData) => {
-  const data = await fetch("http://localhost:3004/videos", {
+  const data = await fetch("https://shadowed-blush-collar.glitch.me/videos/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,9 +19,12 @@ const createVideo = async (videoData) => {
 };
 
 const deleteVideo = async (id) => {
-  const data = await fetch(`http://localhost:3004/videos/${id}`, {
-    method: "DELETE",
-  });
+  const data = await fetch(
+    `https://shadowed-blush-collar.glitch.me/videos/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
   const res = await data.json();
   return res;
 };
