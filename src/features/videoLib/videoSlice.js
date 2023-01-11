@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const fetchVideos = async () => {
-  const data = await fetch("http://localhost:3004/videos");
+  const data = await fetch("http://localhost:3004/videos/");
   const res = await data.json();
   return res;
 };
@@ -28,6 +28,7 @@ const deleteVideo = async (id) => {
 
 const initialState = {
   videos: [],
+  bucket: "all",
 };
 
 export const retrieveVideos = createAsyncThunk("videos/retrieve", async () => {
@@ -54,7 +55,11 @@ export const deleteOneVideo = createAsyncThunk(
 const videoSlice = createSlice({
   name: "videos",
   initialState,
-  reducers: {},
+  reducers: {
+    changeBucket: (state, action) => {
+      state.bucket = action.payload;
+    },
+  },
   extraReducers: {
     [retrieveVideos.fulfilled]: (state, action) => {
       state.videos = action.payload;
@@ -71,4 +76,5 @@ const videoSlice = createSlice({
 });
 
 const { reducer } = videoSlice;
+export const { changeBucket } = videoSlice.actions;
 export default reducer;

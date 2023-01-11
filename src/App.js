@@ -1,41 +1,23 @@
-// import logo from "./logo.svg";
-// import { Counter } from "./features/counter/Counter";
-import React, { useEffect } from "react";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { retrieveVideos } from "./features/videoLib/videoSlice";
-import { VideoCard } from "./components/videoCard.js";
-import { NewVideo } from "./components/newVideo.js";
-import { Typography } from "antd";
-
-const { Title } = Typography;
+import { Home } from "./components/home";
+import { NewVideo } from "./components/newVideo";
+import { Video } from "./components/video";
 
 function App() {
-  const { videos } = useSelector((state) => state.video);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(retrieveVideos());
-  }, [dispatch]);
-
   return (
-    <div>
-      <Title level={2}>videoLibrary</Title>
-      <div>
-        {videos.map((video) => (
-          <VideoCard
-            key={video.id}
-            id={video.id}
-            name={video.name}
-            url={video.videoURL}
-            bucket={video.bucket}
-          />
-        ))}
-      </div>
-      <div>
-        <div>Add New Video</div>
-        <NewVideo />
-      </div>
+    <div className="App">
+      <BrowserRouter>
+        <nav>
+          <Link to="/videos">All Videos</Link>
+          <Link to="/videos/new">Add New Video</Link>
+        </nav>
+        <Routes>
+          <Route path="/videos" element={<Home />}></Route>
+          <Route path="/videos/:id" element={<Video />}></Route>
+          <Route path="/videos/new" element={<NewVideo />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

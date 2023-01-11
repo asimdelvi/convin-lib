@@ -11,7 +11,9 @@ export const NewVideo = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
-    dispatch(addNewVideo({ name, videoURL: video, bucket }));
+    dispatch(
+      addNewVideo({ name, videoURL: video, bucket: bucket.toLowerCase() })
+    );
     setName("");
     setBucket("");
     setVideo("");

@@ -3,6 +3,7 @@ import {
   EllipsisOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Card } from "antd";
 import { deleteOneVideo } from "../features/videoLib/videoSlice";
@@ -39,6 +40,7 @@ export const VideoCard = (props) => {
       ]}
     >
       <Meta title={name} description={bucket} />
+      <Link to={`/videos/${id}`}>{name}</Link>
     </Card>
   );
 };
