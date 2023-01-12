@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const fetchVideos = async () => {
-  const data = await fetch("https://shadowed-blush-collar.glitch.me/videos/");
+  const data = await fetch("https://my-json-server.typicode.com/asimdelvi/videoLibDB/videos/");
   const res = await data.json();
   return res;
 };
 
 const createVideo = async (videoData) => {
-  const data = await fetch("https://shadowed-blush-collar.glitch.me/videos/", {
+  const data = await fetch("https://my-json-server.typicode.com/asimdelvi/videoLibDB/videos/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ const createVideo = async (videoData) => {
 
 const deleteVideo = async (id) => {
   const data = await fetch(
-    `https://shadowed-blush-collar.glitch.me/videos/${id}`,
+    `https://my-json-server.typicode.com/asimdelvi/videoLibDB/videos/${id}`,
     {
       method: "DELETE",
     }
